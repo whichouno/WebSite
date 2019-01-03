@@ -1,0 +1,156 @@
+{% load set_active %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+    <head>
+        <title>LZealot's Site</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+        <script type="application/x-javascript"> addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
+
+        <link href="{% static 'styles/001/css/bootstrap.min.css' %}" rel="stylesheet"/>
+        <link href="{% static 'styles/001/css/style.css' %}" rel='stylesheet' type='text/css'/>
+        <link href="{% static 'styles/001/css/style-responsive.css' %}" rel="stylesheet"/>
+        <link href="{% static 'styles/001/css/font.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="{% static 'styles/001/css/font-awesome.css' %}" rel="stylesheet">
+        <link href="{% static 'styles/001/css/morris.css' %}" type="text/css" rel="stylesheet"/>
+        <link href="{% static 'styles/001/css/monthly.css' %}" rel="stylesheet"/>
+
+        <script src="{% static 'styles/001/js/jquery2.0.3.min.js' %}"></script>
+        <script src="{% static 'styles/001/js/raphael-min.js' %}"></script>
+        <script src="{% static 'styles/001/js/morris.js' %}"></script>
+
+        <script src="{% static 'styles/001/js/jquery.ba-resize.js' %}"></script>
+
+        {% block header_js %}{% endblock %}
+    </head>
+    <body>
+        <section id="container">
+
+            <header class="header fixed-top clearfix">
+                <div class="brand">
+                    <a href="/" class="logo">
+                        LZEALOT 01
+                    </a>
+                    <div class="sidebar-toggle-box">
+                        <div class="fa fa-bars"></div>
+                    </div>
+                </div>
+
+                <div class="top-nav clearfix">
+                    <ul class="nav pull-right top-menu">
+                        <li>
+                            <input type="text" class="form-control search" placeholder=" Search">
+                        </li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <img alt="" src="{% static '/styles/001/images/2.png' %}">
+                                <span class="username">John Doe</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu extended logout">
+                                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+
+            <aside>
+                <div id="sidebar" class="nav-collapse">
+                    <div class="leftside-navigation">
+                        <ul class="sidebar-menu" id="nav-accordion">
+                            <li>
+                                <a {% block li_a_HomePage_class %}{% endblock %} href="/">
+                                    <i class="fa fa-home"></i>
+                                    <span>HomePage</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a {% block li_a_Blog_class %}{% endblock %} href="fontawesome.html">
+                                    <i class="fa fa-wpforms"></i>
+                                    <span>Blog</span>
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a {% block li_a_CryptoCurrency_class %}{% endblock %} href="javascript:;">
+                                    <i class="fa fa-bar-chart-o"></i>
+                                    <span>CryptoCurrency</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/cryptocurrency/bitcoin">Bitcoin</a></li>
+                                    <li><a href="/cryptocurrency/ethereum">Ethereum</a></li>
+                                    <li><a href="/cryptocurrency/ethereumclassic">Ethereum Classic</a></li>
+                                    <li><a href="/cryptocurrency/bitcoincash">Bitcoin Cash</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="sub-menu">
+                                <a {% block li_a_BookShelf_class %}{% endblock %} href="javascript:;">
+                                    <i class="fa fa-book"></i>
+                                    <span>BookShelf</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/bookshelf/all">All Areas</a></li>
+                                    <li><a href="/bookshelf/asian">Asian</a></li>
+                                    <li><a href="/bookshelf/europe">Europe</a></li>
+                                    <li><a href="/bookshelf/northamerica">North America</a></li>
+                                    <li><a href="/bookshelf/southamerica">South America</a></li>
+                                    <li><a href="/bookshelf/africa">Africa</a></li>
+                                    <li><a href="/bookshelf/oceania">Oceania</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a {% block li_a_BeenTo_class %}{% endblock %} href="javascript:;">
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>BeenTo</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="/beento/">Map</a></li>
+                                </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a {% block li_a_Settings_class %}{% endblock %} href="javascript:;">
+                                    <i class="fa fa-cog"></i>
+                                    <span>Settings</span>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="form_component.html">Form Elements</a></li>
+                                    <li><a href="form_validation.html">Form Validation</a></li>
+                                    <li><a href="dropzone.html">Dropzone</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <section id="main-content">
+                <section class="wrapper">
+
+                    {% block body_content %}{% endblock %}
+
+                </section>
+            </section>
+
+        </section>
+
+        <script src="{% static 'styles/001/js/bootstrap.js' %}"></script>
+        <script src="{% static 'styles/001/js/jquery.dcjqaccordion.2.7.js' %}"></script>
+        <script src="{% static 'styles/001/js/scripts.js' %}"></script>
+        <script src="{% static 'styles/001/js/jquery.slimscroll.js' %}"></script>
+        <script src="{% static 'styles/001/js/jquery.nicescroll.js' %}"></script>
+        <script src="{% static 'styles/001/js/jquery.scrollTo.js' %}"></script>
+
+        {% block body_js %}{% endblock %}
+    </body>
+</html>

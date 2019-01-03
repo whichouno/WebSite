@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="../../static/javascript/jquery/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="../../static/javascript/jquery/ui/jquery-ui.js"></script>
+        <link rel="stylesheet" href="../../static/css/jquery/ui/jquery-ui.css">
+
+        <script type="text/javascript" src="../../static/javascript/echart/echarts-4.1.0.rc2.js"></script>
+        <script type="text/javascript" src="../../static/javascript/theme/vintage.js"></script>
+        <style>#main {width:1000px; height: 1000px;margin: auto;}</style>
+    </head>
+    <body>
+        <script type="text/javascript" src="tree_test01.js"></script>
+        <h1>提交书籍信息</h1>
+        <form action="/books/" method="post">
+            <p>作者<input type="text" name="name"></p>
+            <p>生年<input type="text" name="birth"></p>
+            <p>卒年<input type="text" name="death"></p>
+            <p>简介<input type="text" name="abstract"></p>
+            <p>书名<input type="text" name="book"></p>
+            <p>地区
+                <select name="continent">
+                    {% for continent in continents_list %}
+    {#                    <option value ="{{ forloop.counter }}">{{ continent.name }}</option>#}
+                        <option value ="{{ continent.id }}">{{ continent.name }}</option>
+                    {% endfor %}
+                </select>
+                <select name="state">
+                    {% for state in states_list %}
+                        <option value ="{{ state.id }}">{{ state.name }}</option>
+                    {% endfor %}
+                </select>
+            </p>
+            <p><input type="submit" value="submit"></p>
+        </form>
+        <div id="main"></div>
+        <script id="script_tree_data" type="text/javascript" src="tree_test01.js" rawData="{{ rawData }}"></script>
+    </body>
+</html>
+

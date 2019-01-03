@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="description" content="this is a web station for alone.">
+    <meta name="keywords" content="perfect,home,blog,web,station">
+    <title>我的个人站点</title>
+    <style type="text/css">
+        #head{width: 100%;  height: 10%;  margin: auto;  background-color: red; }
+        #container{  width: 100%;  height: 80%;  margin: auto;  background-color: yellow;  }
+        #bottom{  width: 100%;  height: 10%;  background-color: green;  margin: auto;  }
+
+    </style>
+    </head>
+    <body>
+        <div class="nav-list hidden-sm">
+            <div class="collapse navbar-collapse header-right clearfix" id="common_navbar_collapse">
+                <div class="nav-collapse-box">
+                    <div class="btn-group pull-right btn-group-right" role="group">
+
+                        <button type="button" class="btn">Markets</button>
+                                    <button type="button" class="btn nav-log-out" onclick="window.location = '/account/register'">
+                Register
+            </button>
+        <button type="button" class="btn md_logIn_button" onclick="window.location = '/account/login'">
+            log in
+        </button>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav-list sm-nav-list hidden-lg hidden-md hidden-xs">
+            <div class="sm-nav-header clearfix">
+                <div class="nav-close-icon">
+                    <span class="icon-menu-close-blue" id="close_sm_nav"></span>
+                </div>
+            </div>
+            <div class="sm-nav-body">
+                <div class="sm-nav-box">
+                    <ul class="sm-nav-items" id="un_auth_nav">
+
+
+                        <li class="sm-nav-item"><a href="/home/markets">markets</a></li>
+                    </ul>
+                    <ul class="sm-nav-items" id="auth_nav">
+                        <li class="sm-nav-item">            <a href="/account/register" style="display: block;">register</a>
+        <a href="/account/login">log in</a>
+</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    <section class="section-register user-container">
+    <div class="container">
+        <h3 class="trade-aside-header">Log In</h3>
+<form action="/Account/Login" class="form home-register-form" id="loginForm" method="post" name="register" role="form"><input name="__RequestVerificationToken" type="hidden" value="y-Ji6Pw8pzT2SyQ-Na-cUj4uE9c31S06IZcM97sxZB1If8KjgXG84hHMBy_zrI9jOAx1L7i3DzIlaTSyPpdweCMyBQI1" /><input data-val="true" data-val-required="The RecaptchaPublicKey field is required." id="RecaptchaPublicKey" name="RecaptchaPublicKey" type="hidden" value="6Lf3WSAUAAAAAOLCgtYTXztdPHtTuZxq9k5DHthK" />            <div class="form-group">
+                <label for="email_register" type="email" name="email">Email address:</label>
+                <input autofocus="autofocus" class="form-control" data-val="true" data-val-email="Invalid Email Address" data-val-required="The email address is required" id="UserName" name="UserName" onfocusout="textBox_trimOnLostFocus(this)" placeholder="Email Address" type="text" value="" />
+
+            </div>
+            <div class="form-group">
+                <label for="password_register" name="email">Password:</label>
+                <input autocomplete="off" class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Your Password" type="password" />
+
+            </div>
+            <div class="form-group form-group-accept">
+                <div class="common-checkbox-container">
+                    <input class="common-checkbox sign-up-checkbox" data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" /><input name="RememberMe" type="hidden" value="false" />
+                </div>
+                <span class="remember-me">Remember me</span>
+                <a class="forgot-pwd" href="/Account/PasswordReset">Forgot password?</a>
+            </div>
+            <div class="form-group">
+                <button class="g-recaptcha register-btn login"
+                        data-sitekey="6Lf3WSAUAAAAAOLCgtYTXztdPHtTuZxq9k5DHthK"
+                        data-callback="OnSubmit">
+                    Log In
+                </button>
+            </div>
+</form>        <p class="section-register-footer">
+        <span>Don't have an account?</span>
+            <a href="/account/Register">Sign Up</a>
+        </p>
+
+    </div>
+</section>
+
+
+
+    </body>
+</html>

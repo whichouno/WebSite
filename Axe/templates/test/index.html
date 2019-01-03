@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>后台管理</title>
+    <link href="login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="login_box">
+          <div class="login_l_img"><img src="images/login-img.png" /></div>
+          <div class="login">
+              <div class="login_logo"><a href="#"><img src="images/login_logo.png" /></a></div>
+              <div class="login_name">
+                   <p>后台管理系统</p>
+              </div>
+              <form method="post">
+                  <input name="username" type="text"  value="用户名" onfocus="this.value=''" onblur="if(this.value==''){this.value='用户名'}">
+                  <span id="password_text" onclick="this.style.display='none';document.getElementById('password').style.display='block';document.getElementById('password').focus().select();" >密码</span>
+                  <input name="password" type="password" id="password" style="display:none;" onblur="if(this.value==''){document.getElementById('password_text').style.display='block';this.style.display='none'};"/>
+                  <input value="登录" style="width:100%;" type="submit">
+              </form>
+          </div>
+    </div>
+    <div style="text-align:center;"></div>
+
+    <form name="login" onsubmit="javascript:return chkfrm(this);">
+        用户名:<input type="text" name="username" onpropertychange="javascript:if(this.value.length>=8)this.form.userpwd.focus();">
+        <br>
+        密码:<input type="password" name="userpwd"><br>
+        <input type="submit" value="登录">
+        <input type="reset" value="重置">
+    </form>
+    <script language="javascript">
+        function chkfrm(o){
+            if(o.username.value==''){
+                alert('请输入用户名！');
+                return false;
+            }
+            if(o.userpwd.value==''){
+                alert('请输入密码！');
+                return false;
+            }
+            alert('登陆成功');
+            return false;
+        }
+    </script>
+</body>
+</html>

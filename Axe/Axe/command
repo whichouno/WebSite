@@ -1,0 +1,23 @@
+python manage.py makemigrations
+python manage.py migrate
+python manage.py migrate --database blogdb
+python manage.py migrate --database coindb
+python manage.py migrate --database bookshelfdb
+python manage.py migrate --database beentodb
+
+python manage.py createsuperuser
+python manage.py createsuperuser --database blogdb
+
+从现有数据库生成model
+python manage.py inspectdb --database coindb
+
+
+python manage.py inspectdb --database bookshelfdb
+
+python manage.py inspectdb --database beentodb
+
+
+
+新建APP
+python manage.py startapp appname
+
