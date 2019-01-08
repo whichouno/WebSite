@@ -67,8 +67,6 @@ function myChart_dateZoom_SetDate(startDate,endDate){
 }
 
 function myChart_dateZoom_SetRange(start,end){
-
-    console.log("ddd");
     myChart.setOption(option= {
         dataZoom: [
             {
@@ -88,6 +86,7 @@ function myChart_dateZoom_SetRange(start,end){
 
         ]
     });
+    return false;
 }
 
 myChart.on('datazoom', function (param) {
