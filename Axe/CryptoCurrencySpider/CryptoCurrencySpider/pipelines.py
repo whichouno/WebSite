@@ -21,6 +21,7 @@ class CryptocurrencyspiderPipeline(object):
                     with open(self.log_path, 'ab+') as fp:
                         fp.write(str(name).encode('utf8') + str(" : ").encode('utf8') + str(res[1]).encode('utf8') + b'\n')
             else:
+                print('******&&&&&&',spider.name)
                 pass
         except BaseException as e:
             with open(self.log_path, 'ab+') as fp:

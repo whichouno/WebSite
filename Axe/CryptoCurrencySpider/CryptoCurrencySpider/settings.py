@@ -9,20 +9,11 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-import os
-import sys
-
-sys.path.append(os.path.dirname(os.path.abspath('.')))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'Axe.settings'
-
-
 BOT_NAME = 'CryptoCurrencySpider'
 
 SPIDER_MODULES = ['CryptoCurrencySpider.spiders']
 NEWSPIDER_MODULE = 'CryptoCurrencySpider.spiders'
 
-# import django
-# django.setup()
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'CryptoCurrencySpider (+http://www.yourdomain.com)'

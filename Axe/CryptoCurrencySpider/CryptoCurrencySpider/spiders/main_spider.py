@@ -50,7 +50,7 @@ class MainSpider(scrapy.Spider):
 
     def parse(self, response):
         print('parse:********************************')
-        print(self.begin_date,self.end_date,self.category)
+        print(self.begin_date, self.end_date, self.category)
         try:
             if (self.parse_type == 1):
                 coins = response.xpath(XPATH_ELEMENT['coins_list'])
@@ -108,10 +108,8 @@ class MainSpider(scrapy.Spider):
                 # item['name'] = response.xpath(XPATH_ELEMENT['coin_fullname']).extract()[0].replace(" ","") + '-' + \
                 #                response.xpath(XPATH_ELEMENT['coin_shortname']).extract()[0]
 
-                item['name'] = response.xpath('/html/body/div[2]/div/div[1]/div[3]/div[1]/div[1]/text()').extract()[
-                                   1].replace(" ", "").replace("\n", "") + '-' + \
-                               response.xpath(
-                                   '/html/body/div[2]/div/div[1]/div[3]/div[1]/div[1]/span/text()').extract()[0]
+                item['name'] = response.xpath('/html/body/div[2]/div/div[1]/div[3]/div[1]/div[1]/text()').extract()[1].replace(" ", "").replace("\n", "") + '-' + \
+                               response.xpath('/html/body/div[2]/div/div[1]/div[3]/div[1]/div[1]/span/text()').extract()[0]
 
                 data = eachday_day.xpath('./td[1]/text()').extract()[0]
 
@@ -143,7 +141,6 @@ class MainSpider(scrapy.Spider):
             filepath = "/Users/ouno/Documents/Projects/Codes/Python/cryptocurrency/error_log/err.txt"
             with open(filepath, 'a+') as fp:
                 traceback.print_exc(file=fp)
-
 
 # def notThreadSafe(x):
 #     print('not threadsafe')

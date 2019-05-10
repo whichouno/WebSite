@@ -61,10 +61,9 @@ class SpiderThread(threading.Thread):
         self.category = category
 
     def run(self):
-        taskID, y = spiderCrawl(self.begindate, self.enddate, self.category)
-        self.threadID = taskID
+        self.threadID, _ = spiderCrawl(self.begindate, self.enddate, self.category)
         while(True):
-            job_status = scrapyd.job_status('default', taskID)
+            job_status = scrapyd.job_status('default', self.threadID)
             print("job_status:", job_status)
             if(job_status == 'finished'):
                 spider_dict.pop(self.category)

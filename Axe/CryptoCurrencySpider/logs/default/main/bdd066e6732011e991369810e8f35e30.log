@@ -1,0 +1,93 @@
+2019-05-10 20:40:09 [scrapy.utils.log] INFO: Scrapy 1.5.1 started (bot: CryptoCurrencySpider)
+2019-05-10 20:40:09 [scrapy.utils.log] INFO: Versions: lxml 4.2.4.0, libxml2 2.9.8, cssselect 1.0.3, parsel 1.5.0, w3lib 1.19.0, Twisted 18.7.0, Python 3.6.2 (default, Jul 21 2017, 21:28:30) - [GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)], pyOpenSSL 18.0.0 (OpenSSL 1.1.0i  14 Aug 2018), cryptography 2.3.1, Platform Darwin-17.7.0-x86_64-i386-64bit
+2019-05-10 20:40:09 [scrapy.crawler] INFO: Overridden settings: {'BOT_NAME': 'CryptoCurrencySpider', 'LOG_FILE': 'logs/default/main/bdd066e6732011e991369810e8f35e30.log', 'NEWSPIDER_MODULE': 'CryptoCurrencySpider.spiders', 'ROBOTSTXT_OBEY': True, 'SPIDER_MODULES': ['CryptoCurrencySpider.spiders']}
+2019-05-10 20:40:09 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2019-05-10 20:40:09 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2019-05-10 20:40:09 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2019-05-10 20:40:09 [scrapy.middleware] INFO: Enabled item pipelines:
+['CryptoCurrencySpider.pipelines.CryptocurrencyspiderPipeline']
+2019-05-10 20:40:09 [scrapy.core.engine] INFO: Spider opened
+2019-05-10 20:40:09 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2019-05-10 20:40:09 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2019-05-10 20:40:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://coinmarketcap.com/robots.txt> (referer: None)
+2019-05-10 20:40:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://coinmarketcap.com> (referer: None)
+2019-05-10 20:40:11 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET http://coinmarketcap.com/currencies/ethereum-classic/> from <GET https://coinmarketcap.com/currencies/ethereum-classic>
+2019-05-10 20:40:12 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (301) to <GET https://coinmarketcap.com/currencies/ethereum-classic/> from <GET http://coinmarketcap.com/currencies/ethereum-classic/>
+2019-05-10 20:40:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://coinmarketcap.com/currencies/ethereum-classic/> (referer: None)
+2019-05-10 20:40:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://coinmarketcap.com/currencies/ethereum-classic/historical-data/> (referer: https://coinmarketcap.com/currencies/ethereum-classic/)
+2019-05-10 20:40:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://coinmarketcap.com/currencies/ethereum-classic/historical-data/?start=20190507&end=20190510> (referer: https://coinmarketcap.com/currencies/ethereum-classic/historical-data/)
+2019-05-10 20:40:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://coinmarketcap.com/currencies/ethereum-classic/historical-data/?start=20190507&end=20190510>
+{'close': '5.57',
+ 'date': '2019-05-09',
+ 'high': '5.81',
+ 'id': '(ETC)',
+ 'low': '5.50',
+ 'marketcap': '614363021',
+ 'name': 'EthereumClassic-(ETC)',
+ 'open': '5.73',
+ 'volume': '392012219'}
+2019-05-10 20:40:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://coinmarketcap.com/currencies/ethereum-classic/historical-data/?start=20190507&end=20190510>
+{'close': '5.73',
+ 'date': '2019-05-08',
+ 'high': '5.77',
+ 'id': '(ETC)',
+ 'low': '5.59',
+ 'marketcap': '632516021',
+ 'name': 'EthereumClassic-(ETC)',
+ 'open': '5.67',
+ 'volume': '429553716'}
+2019-05-10 20:40:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://coinmarketcap.com/currencies/ethereum-classic/historical-data/?start=20190507&end=20190510>
+{'close': '5.67',
+ 'date': '2019-05-07',
+ 'high': '5.89',
+ 'id': '(ETC)',
+ 'low': '5.65',
+ 'marketcap': '624786648',
+ 'name': 'EthereumClassic-(ETC)',
+ 'open': '5.69',
+ 'volume': '476896645'}
+2019-05-10 20:40:14 [scrapy.core.engine] INFO: Closing spider (finished)
+2019-05-10 20:40:14 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 2213,
+ 'downloader/request_count': 7,
+ 'downloader/request_method_count/GET': 7,
+ 'downloader/response_bytes': 166435,
+ 'downloader/response_count': 7,
+ 'downloader/response_status_count/200': 5,
+ 'downloader/response_status_count/301': 2,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2019, 5, 10, 12, 40, 14, 585805),
+ 'item_scraped_count': 3,
+ 'log_count/DEBUG': 11,
+ 'log_count/INFO': 7,
+ 'memusage/max': 70377472,
+ 'memusage/startup': 70377472,
+ 'request_depth_max': 3,
+ 'response_received_count': 5,
+ 'scheduler/dequeued': 6,
+ 'scheduler/dequeued/memory': 6,
+ 'scheduler/enqueued': 6,
+ 'scheduler/enqueued/memory': 6,
+ 'start_time': datetime.datetime(2019, 5, 10, 12, 40, 9, 981926)}
+2019-05-10 20:40:14 [scrapy.core.engine] INFO: Spider closed (finished)
