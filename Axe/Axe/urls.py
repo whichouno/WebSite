@@ -22,6 +22,7 @@ from BeenTo import views as beento_views
 
 urlpatterns = [
     # homepage
+    path('test/', views.test, name='test'),
     path('', views.index, name='index'),
 
     path('admin/',admin.site.urls),

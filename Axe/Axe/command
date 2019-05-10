@@ -21,3 +21,34 @@ python manage.py inspectdb --database beentodb
 新建APP
 python manage.py startapp appname
 
+
+
+创建scrapy项目
+scrapy startproject name
+
+
+
+# scrapy crawl coin -a begindate='20190501' -a enddate='20190503' -a category='bitcoin' -a parsetype=0
+
+
+from scrapy.cmdline import execute
+execute(['scrapy', 'crawl', 'coin',"-a","begindate=20190501","-a","enddate=20190503","-a","category=ethereum-classic","-a","parsetype=0"])
+
+
+
+pip3 install scrapyd
+
+pip3 install scrapyd-client
+
+modify scrapyd.cfg
+    [deploy:CryptoCurrencySpider]
+    url = http://localhost:6800/
+    project = CryptoCurrencySpider
+
+scrapyd-deploy -l
+
+scrapy list
+
+cd spider-path & scrapyd
+
+scrapyd-deploy -p project-name

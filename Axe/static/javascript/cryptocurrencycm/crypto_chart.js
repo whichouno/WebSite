@@ -86,7 +86,7 @@ function myChart_dateZoom_SetRange(start,end){
 
         ]
     });
-    return false;
+    // return false;
 }
 
 myChart.on('datazoom', function (param) {

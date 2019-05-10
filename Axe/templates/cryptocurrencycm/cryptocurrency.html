@@ -33,7 +33,7 @@
           <i class="fa fa-bitcoin"></i>
         </span>
         <span class="panel-title">
-            {{ title }}
+            {{ title }} 14
             <span class="tools pull-left">
                 <ul class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -41,7 +41,9 @@
                     </a>
 
                     <!--use form : no auto hide and modify button's submit(click). -->
-                    <form class="dropdown-menu extended tasks-bar" onsubmit="return myChart_dateZoom_SetRange(0, 100)">
+                    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                    <form class="dropdown-menu extended tasks-bar" method="post" target="nm_iframe">
+{#                    <form class="dropdown-menu extended tasks-bar" method="post" onsubmit="return myChart_dateZoom_SetRange(0, 100)">#}
                         <li>
                             Choose Date
                         </li>
@@ -59,14 +61,14 @@
                         </li>
                         <li>
                             <a href="#">
-                                <button class="btn btn-compose" type="submit">All Date Range</button>
+{#                                <button class="btn btn-compose" type="submit">All Date Range</button>#}
+                                <button class="btn btn-compose" onclick="return myChart_dateZoom_SetRange(0, 100)">All Date Range</button>
                             </a>
                         </li>
-                    </form>
+                    </form><!-->
 
-
-                    <!--use span : menu hide when click on input.
-                    <span class="dropdown-menu extended tasks-bar">
+                    <!--use span : menu hide when click on input.--
+                    <form class="dropdown-menu extended tasks-bar">
                         <li>
                             Choose Date
                         </li>
@@ -92,7 +94,7 @@
                                 </script>
                             </a>
                         </li>
-                    </span>-->
+                    </form><!-->
                 </ul>
              </span>
         </span>
