@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <script type="text/javascript" src="{% static 'javascript/jquery/jquery-3.3.1.js' %}"></script>
+        <script type="text/javascript" src="{% static 'javascript/jquery/ui/jquery-ui.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/jquery/ui/jquery-ui.css' %}">
+
+        <script type="text/javascript" src="{% static 'javascript/echart/echarts-4.1.0.rc2.js' %}"></script>
+        <script type="text/javascript" src="{% static 'javascript/theme/vintage.js' %}"></script>
+        <script>
+            $(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/ajax_continent",
+                    dataType: "json",
+                    success: function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            var pOption = "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+                            $("#continent").append(pOption);
+                        }
+                    }
+                });
+    　　　　　　　
+                $.ajax({
+                    type: "post",
+                    url: "/ajax_state",
+                    dataType: "json",
+                    data: JSON.stringify({continent_id:1}),
+                    success: function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            var pOption = "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+                            $("#state").append(pOption);
+                        }
+                    }
+                });
+
+                $("#continent").change(function(){
+                    $("#state").attr("disabled",false);
+{#                    $("#state").children(":not(:first)").remove();#}
+                    $("#state").children().remove();
+                    var val=$("#continent option:selected").val();
+
+                    $.ajax({
+                        type: "post",
+                        url: "/ajax_state",
+                        dataType: "json",
+                        data: JSON.stringify({continent_id:val}),
+                        success: function (data) {
+                            for (var i = 0; i < data.length; i++) {
+                                var pOption = "<option value='"+data[i]['id']+"'>"+data[i]['name']+"</option>";
+                                $("#state").append(pOption);
+                            }
+                        }
+                    });
+                });
+            });
+        </script>
+        <style>
+            select{
+                width:100px;
+            }
+        </style>
+    </head>
+    <body>
+        洲：
+        <select id="continent">
+{#            <option value="">请选择</option>#}
+        </select>
+        国：
+        <select id="state">
+{#        <select id="state" disabled="disabled">#}
+{#            <option value="">请选择</option>#}
+        </select>
+
+    </body>
+</html>

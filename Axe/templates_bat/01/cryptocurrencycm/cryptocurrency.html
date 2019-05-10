@@ -1,0 +1,127 @@
+{% extends "motherModel.html" %}
+{% load staticfiles %}
+
+{% block header_js %}
+    <link href="{% static 'css/jquery/ui/jquery-ui.css' %}" rel="stylesheet"/>
+    <script type="text/javascript" src="{% static 'javascript/jquery/ui/jquery-ui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/echart/echarts-4.1.0.rc2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/theme/vintage.js' %}"></script>
+    <style type="text/css">
+        #div_cryptocurrency_main {
+            position: relative;
+            height: 800px;
+            padding: 0.5em;
+            background-color: #ddede0 ! important;
+            border-color: #ddede0 ! important;
+        }
+    </style>
+{% endblock %}
+
+
+{% block li_a_HomePage_class %}{% endblock %}
+{% block li_a_Blog_class %}{% endblock %}
+{% block li_a_CryptoCurrency_class %}
+    class="active"
+{% endblock %}
+{% block li_a_BookShelf_class %}{% endblock %}
+{% block li_a_BeenTo_class %}{% endblock %}
+{% block li_a_Settings_class %}{% endblock %}
+
+{% block body_content %}
+    <div class="panel-heading">
+        <span class="panel-icon">
+          <i class="fa fa-bitcoin"></i>
+        </span>
+        <span class="panel-title">
+            {{ title }}
+            <span class="tools pull-left">
+                <ul class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="fa fa-cog"></i>
+                    </a>
+
+                    <!--use form : no auto hide and modify button's submit(click). -->
+                    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                    <form class="dropdown-menu extended tasks-bar" method="post" target="nm_iframe">
+{#                    <form class="dropdown-menu extended tasks-bar" method="post" onsubmit="return myChart_dateZoom_SetRange(0, 100)">#}
+                        <li>
+                            Choose Date
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="form-group">
+                                    <p>Begin Date</p>
+                                    <input class="form-control" id="inp_start_date" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <p>End Date</p>
+                                    <input class="form-control" id="inp_end_date" type="text">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+{#                                <button class="btn btn-compose" type="submit">All Date Range</button>#}
+                                <button class="btn btn-compose" onclick="return myChart_dateZoom_SetRange(0, 100)">All Date Range</button>
+                            </a>
+                        </li>
+                    </form><!-->
+
+                    <!--use span : menu hide when click on input.--
+                    <form class="dropdown-menu extended tasks-bar">
+                        <li>
+                            Choose Date
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="form-group">
+                                    <p>Begin Date</p>
+                                    <input class="form-control" id="inp_start_date" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <p>End Date</p>
+                                    <input class="form-control" id="inp_end_date" type="text">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <button class="btn btn-compose" onclick="onclickEvent();">All Date Range</button>
+                                <script type="text/javascript">
+                                    function onclickEvent() {
+                                        myChart_dateZoom_SetRange(0, 100);
+                                    }
+                                </script>
+                            </a>
+                        </li>
+                    </form><!-->
+                </ul>
+             </span>
+        </span>
+    </div>
+
+    <div class="col-md-12" style="border: 1px solid #000000;"></div>
+
+    <div class="row">
+        <div id="div_main_parent" class="col-md-12">
+            <div id="div_cryptocurrency_main"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_js %}
+    <script>
+        $("a[href='/cryptocurrency/{{ title }}']")[0].setAttribute("class", "active");
+    </script>
+
+
+
+    <script type="text/javascript" src="{% static 'javascript/cryptocurrencycm/crypto_setting.js' %}"></script>
+
+    <script id='script_chart_data' type="text/javascript"
+            src="{% static 'javascript/cryptocurrencycm/crypto_chart.js' %}"
+            rawData="{{ rawData }}"></script>
+    <script>
+        datepickers_init("inp_start_date", "inp_end_date");
+    </script>
+{% endblock %}
