@@ -1,0 +1,55 @@
+{% extends "motherModel.html" %}
+{% load staticfiles %}
+
+{% block header_js %}
+    <script type="text/javascript" src="{% static 'javascript/jquery/ui/jquery-ui.js' %}"></script>
+    <link href="{% static 'css/jquery/ui/jquery-ui.css' %}" rel="stylesheet"/>
+
+    <script type="text/javascript" src="{% static 'javascript/echart/echarts-4.1.0.rc2.js' %}"></script>
+    <script type="text/javascript" src="{% static 'javascript/theme/vintage.js' %}"></script>
+    <script type="text/javascript" src="{% static '/javascript/bookshelf/tree_setting.js' %}"></script>
+    <style type="text/css">
+        #div_bookshelf_main {
+            position: relative;
+            padding: 0.5em;
+            background-color: #ddede0 ! important;
+            border-color: #ddede0 ! important;
+        }
+    </style>
+{% endblock %}
+
+{% block li_a_HomePage_class %}{% endblock %}
+{% block li_a_Blog_class %}{% endblock %}
+{% block li_a_CryptoCurrency_class %}{% endblock %}
+{% block li_a_BookShelf_class %}
+    class="active"
+{% endblock %}
+{% block li_a_BeenTo_class %}{% endblock %}
+{% block li_a_Settings_class %}{% endblock %}
+
+{% block body_content %}
+    <div class="panel-heading">
+        <span class="panel-title">
+            {{ title }}
+        </span>
+    </div>
+
+    <div class="col-md-12" style="border: 1px solid #000000;"></div>
+
+    <div class="row">
+        <div id="div_main_parent" class="col-md-12">
+            <div id="div_bookshelf_main"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_js %}
+    <script>
+        $("a[href='/bookshelf/{{ title }}']")[0].setAttribute("class", "active");
+    </script>
+    <script id="script_tree_data" type="text/javascript" src="{% static 'javascript/bookshelf/tree.js' %}"
+            rawData="{{ rawData }}"></script>
+    <script>
+        select_init('continent', 'state');
+    </script>
+{% endblock %}

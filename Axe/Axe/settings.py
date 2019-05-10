@@ -105,7 +105,7 @@ DATABASE_APPS_MAPPING = {
     'BeenTo': 'beentodb',
 }
 
-DB_HOST = '192.168.1.2'
+DB_HOST = '192.168.1.3'
 DB_PORT = '32768'
 
 DATABASES = {

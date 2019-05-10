@@ -33,30 +33,54 @@
           <i class="fa fa-bitcoin"></i>
         </span>
         <span class="panel-title">
-            {{ title }}
+            {{ title }} 14
             <span class="tools pull-left">
                 <ul class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <i class="fa fa-cog"></i>
                     </a>
 
+                    <!--use form : no auto hide and modify button's submit(click). -->
+                    <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+                    <form class="dropdown-menu extended tasks-bar" method="post" target="nm_iframe">
+{#                    <form class="dropdown-menu extended tasks-bar" method="post" onsubmit="return myChart_dateZoom_SetRange(0, 100)">#}
+                        <li>
+                            Choose Date
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="form-group">
+                                    <p>Begin Date</p>
+                                    <input class="form-control" id="inp_start_date" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <p>End Date</p>
+                                    <input class="form-control" id="inp_end_date" type="text">
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+{#                                <button class="btn btn-compose" type="submit">All Date Range</button>#}
+                                <button class="btn btn-compose" onclick="return myChart_dateZoom_SetRange(0, 100)">All Date Range</button>
+                            </a>
+                        </li>
+                    </form><!-->
+
+                    <!--use span : menu hide when click on input.--
                     <form class="dropdown-menu extended tasks-bar">
                         <li>
                             Choose Date
                         </li>
                         <li>
                             <a href="#">
-                                <div class=" ">
-                                    <p class="control-label col-lg-3">Begin Date</p>
-                                    <div class="col-lg-6">
-                                        <input class="form-control" id="inp_start_date" type="text">
-                                    </div>
+                                <div class="form-group">
+                                    <p>Begin Date</p>
+                                    <input class="form-control" id="inp_start_date" type="text">
                                 </div>
-                                <div class=" ">
-                                    <p class="control-label col-lg-3">End Date</p>
-                                    <div class="col-lg-6">
-                                        <input class="form-control" id="inp_end_date" type="text">
-                                    </div>
+                                <div class="form-group">
+                                    <p>End Date</p>
+                                    <input class="form-control" id="inp_end_date" type="text">
                                 </div>
                             </a>
                         </li>
@@ -70,7 +94,7 @@
                                 </script>
                             </a>
                         </li>
-                    </form>
+                    </form><!-->
                 </ul>
              </span>
         </span>
